@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Joke Picker</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Joke Picker</h1>
+
+    <form method="POST" action="/fetch">
+      <label><input type="checkbox" name="type" value="Programming"> Programming</label>
+      <label><input type="checkbox" name="type" value="Pun"> Pun</label>
+      <label><input type="checkbox" name="type" value="Spooky"> Spooky</label>
+      <label><input type="checkbox" name="type" value="Christmas"> Christmas</label>
+      <label><input type="checkbox" name="type" value="Misc"> Misc</label>
+      <button type="submit">Get Joke</button>
+    </form>
+
+
+    <% if (typeof joke !== 'undefined' && joke) { %>
+      <p style="margin-top:20px; font-size:18px;"><%= joke %></p>
+      <form method="POST" action="/save">
+        <input type="hidden" name="content" value="<%= joke %>">
+        <button type="submit">⭐ Star this Joke</button>
+      </form>
+    <% } %>
+
+    <a href="/favorites" style="display:block; margin-top:20px;">View Favorites</a>
+  </div>
+</body>
+</html>

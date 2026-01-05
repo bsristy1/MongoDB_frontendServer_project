@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Favorite Jokes</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Favorite Jokes</h1>
+
+    <% if (jokes.length === 0) { %>
+      <p>No favorite jokes yet.</p>
+    <% } else { %>
+      <ul>
+        <% jokes.forEach((j) => { %>
+          <li><%= j.content %></li>
+        <% }); %>
+      </ul>
+    <% } %>
+
+    <a href="/" style="display:block; margin-top:20px;">Back to Home</a>
+  </div>
+</body>
+</html>
